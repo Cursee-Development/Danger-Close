@@ -6,7 +6,10 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [],
   "client": [],
-  "server": [],
+  "server": [
+    "ForgeCampfireBlockMixin",
+    "ForgeCampfireBlockMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

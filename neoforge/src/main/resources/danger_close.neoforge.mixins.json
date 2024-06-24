@@ -5,7 +5,10 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [],
   "client": [],
-  "server": [],
+  "server": [
+    "NeoForgeCampfireBlockMixin",
+    "NeoForgeCampfireBlockMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }
