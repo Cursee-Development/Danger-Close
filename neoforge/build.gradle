@@ -35,4 +35,6 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
+
+    implementation "curse.maven:monolib-968432:5443137"
 }
