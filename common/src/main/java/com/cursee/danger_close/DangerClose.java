@@ -2,6 +2,7 @@ package com.cursee.danger_close;
 
 import com.cursee.danger_close.platform.Services;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
 
 public class DangerClose {
 
@@ -14,4 +15,6 @@ public class DangerClose {
     public static ResourceLocation identifier(String value) {
         return new ResourceLocation(Constants.MOD_ID, value);
     }
+
+    public static void detect(LivingEntity entity) {}
 }

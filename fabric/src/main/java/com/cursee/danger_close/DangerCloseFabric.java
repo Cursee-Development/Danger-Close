@@ -1,5 +1,6 @@
 package com.cursee.danger_close;
 
+import com.cursee.danger_close.core.FabricCommonConfigHandler;
 import com.cursee.danger_close.core.event.LivingEntityTickEvent;
 import com.cursee.danger_close.core.registry.RegistryFabric;
 import com.cursee.monolib.core.sailing.Sailing;
@@ -13,6 +14,7 @@ public class DangerCloseFabric implements ModInitializer {
     public void onInitialize() {
         DangerClose.init();
         Sailing.register(Constants.MOD_ID, Constants.MOD_NAME, Constants.MOD_VERSION, Constants.MOD_PUBLISHER, Constants.MOD_URL);
+        FabricCommonConfigHandler.onLoad();
         RegistryFabric.register();
         // ServerTickEvents.START_SERVER_TICK.register(server -> onServerTick(server));
         LivingEntityTickEvent.ON_TICK.register(entity -> onLivingTick(entity));
@@ -29,5 +31,6 @@ public class DangerCloseFabric implements ModInitializer {
         MinecraftServer server = entity.getServer();
         if (server == null || server.getTickCount() % 2 != 0) return;
         // operate here
+        DangerClose.detect(entity);
     }
 }
