@@ -24,6 +24,13 @@ dependencies {
     modImplementation "curse.maven:modmenu-308702:5162837"
 
     modImplementation "curse.maven:monolib-968432:6123964"
+
+    // todo uncomment and test
+    // Forge Config Api Port, required by Soul Fire'd
+    // modImplementation "curse.maven:forge-config-api-port-fabric-547434:6325013"
+
+    // Soul Fire'd
+    // modImplementation "curse.maven:soul-fire-d-662413:6248079"
 }
 
 loom {
