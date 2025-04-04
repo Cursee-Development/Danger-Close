@@ -31,6 +31,7 @@ dependencies {
 
     // Soul Fire'd
     // modImplementation "curse.maven:soul-fire-d-662413:6248079"
+    modImplementation "it.crystalnest:soul-fire-d-fabric:${minecraft_version}-${soul_fire_d_version}"
 }
 
 loom {

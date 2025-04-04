@@ -1,7 +1,6 @@
 package com.cursee.danger_close;
 
 import com.cursee.danger_close.core.ForgeCommonConfigHandler;
-import com.cursee.danger_close.core.registry.RegistryForge;
 import com.cursee.monolib.core.sailing.Sailing;
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
@@ -26,7 +25,6 @@ public class DangerCloseForge {
         Sailing.register(Constants.MOD_ID, Constants.MOD_NAME, Constants.MOD_VERSION, Constants.MOD_PUBLISHER, Constants.MOD_URL);
         ForgeCommonConfigHandler.onLoad();
         DangerCloseForge.EVENT_BUS = context.getModEventBus();
-        RegistryForge.register(DangerCloseForge.EVENT_BUS);
         // MinecraftForge.EVENT_BUS.addListener((Consumer<TickEvent.ServerTickEvent>)event -> onServerTick(event));
         MinecraftForge.EVENT_BUS.addListener((Consumer<LivingEvent.LivingTickEvent>) event -> onLivingTick(event));
     }
