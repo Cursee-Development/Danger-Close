@@ -36,6 +36,8 @@ neoForge {
     }
     dependencies {
         implementation "curse.maven:monolib-968432:6123990"
+
+        implementation "it.crystalnest:soul-fire-d-neoforge:1.21-${soul_fire_d_version}"
     }
 }
 

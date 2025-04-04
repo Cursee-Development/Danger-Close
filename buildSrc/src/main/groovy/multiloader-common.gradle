@@ -41,6 +41,7 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven { url 'https://maven.crystalnest.it' }
 }
 
 // Declare capabilities on the outgoing configurations.
