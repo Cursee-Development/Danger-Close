@@ -2,8 +2,11 @@ package com.cursee.danger_close;
 
 import com.cursee.danger_close.core.FabricCommonConfigHandler;
 import com.cursee.danger_close.core.event.LivingEntityTickEvent;
+import com.cursee.danger_close.core.network.FabricNetwork;
+import com.cursee.danger_close.core.network.packet.FabricConfigSyncS2CPacket;
 import com.cursee.monolib.core.sailing.Sailing;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.LivingEntity;
 
@@ -16,6 +19,9 @@ public class DangerCloseFabric implements ModInitializer {
         FabricCommonConfigHandler.onLoad();
         // ServerTickEvents.START_SERVER_TICK.register(server -> onServerTick(server));
         LivingEntityTickEvent.ON_TICK.register(entity -> onLivingTick(entity));
+
+        FabricNetwork.Packets.registerPacketIDs();
+        ServerEntityEvents.ENTITY_LOAD.register(FabricConfigSyncS2CPacket::registerS2CPacketSender);
     }
 
 //    public static void onServerTick(MinecraftServer server) {
