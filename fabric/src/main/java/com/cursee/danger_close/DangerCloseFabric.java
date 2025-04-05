@@ -26,13 +26,12 @@ public class DangerCloseFabric implements ModInitializer {
 
         PayloadTypeRegistry.playS2C().register(FabricConfigSyncS2CPacket.TYPE, FabricNetwork.CONFIG_SYNC_CODEC);
         ServerEntityEvents.ENTITY_LOAD.register((entity, level) -> {
-            if (entity instanceof ServerPlayer serverPlayer) {
-                ServerPlayNetworking.send(serverPlayer, new FabricConfigSyncS2CPacket(
-                        CommonConfigValues.shouldDetect, CommonConfigValues.shouldTorchImmolate, CommonConfigValues.shouldSoulTorchImmolate,
-                        CommonConfigValues.shouldCampfireImmolate, CommonConfigValues.shouldSoulCampfireImmolate, CommonConfigValues.shouldStonecutterCut,
-                        CommonConfigValues.shouldBlazeImmolate, CommonConfigValues.shouldMagmaBlockImmolate, CommonConfigValues.shouldMagmaCubeImmolate)
-                );
-            }
+            if (!(entity instanceof ServerPlayer player)) return;
+            ServerPlayNetworking.send(player, new FabricConfigSyncS2CPacket(
+                    CommonConfigValues.shouldDetect, CommonConfigValues.shouldTorchImmolate, CommonConfigValues.shouldSoulTorchImmolate,
+                    CommonConfigValues.shouldCampfireImmolate, CommonConfigValues.shouldSoulCampfireImmolate, CommonConfigValues.shouldStonecutterCut,
+                    CommonConfigValues.shouldBlazeImmolate, CommonConfigValues.shouldMagmaBlockImmolate, CommonConfigValues.shouldMagmaCubeImmolate)
+            );
         });
     }
 

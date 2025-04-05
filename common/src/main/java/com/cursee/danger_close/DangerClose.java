@@ -109,14 +109,14 @@ public class DangerClose {
     }
 
     public static void immolateSoul(LivingEntity entity) {
-        if (!isSoulFiredLoaded) immolate(entity);
-        else SoulFired.immolateSoul(entity);
+        if (isSoulFiredLoaded && !Services.PLATFORM.getPlatformName().equalsIgnoreCase("forge")) SoulFired.immolateSoul(entity);
+        else immolate(entity);
     }
 
     public static void spreadFire(LivingEntity entityA, LivingEntity entityB) {
 
         if (entityA.isOnFire() && !entityB.isOnFire()) {
-            if (isSoulFiredLoaded) {
+            if (isSoulFiredLoaded && !Services.PLATFORM.getPlatformName().equalsIgnoreCase("forge")) {
                 SoulFired.spreadTypedFire(entityA, entityB);
                 return;
             }
@@ -124,7 +124,7 @@ public class DangerClose {
             immolate(entityB);
         }
         else if (!entityA.isOnFire() && entityB.isOnFire()) {
-            if (isSoulFiredLoaded) {
+            if (isSoulFiredLoaded && !Services.PLATFORM.getPlatformName().equalsIgnoreCase("forge")) {
                 SoulFired.spreadTypedFire(entityA, entityB);
                 return;
             }
