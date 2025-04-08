@@ -16,6 +16,7 @@ import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import java.util.function.Consumer;
@@ -30,6 +31,9 @@ public class DangerCloseForge {
         Sailing.register(Constants.MOD_ID, Constants.MOD_NAME, Constants.MOD_VERSION, Constants.MOD_PUBLISHER, Constants.MOD_URL);
         ForgeCommonConfigHandler.onLoad();
         DangerCloseForge.EVENT_BUS = context.getModEventBus();
+
+        MinecraftForge.EVENT_BUS.addListener((Consumer<FMLCommonSetupEvent>) event -> event.enqueueWork(ForgeNetwork::registerS2CPackets));
+
         // MinecraftForge.EVENT_BUS.addListener((Consumer<TickEvent.ServerTickEvent>)event -> onServerTick(event));
         MinecraftForge.EVENT_BUS.addListener((Consumer<LivingEvent.LivingTickEvent>) event -> onLivingTick(event));
 
