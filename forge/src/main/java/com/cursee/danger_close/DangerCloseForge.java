@@ -27,6 +27,9 @@ public class DangerCloseForge {
         DangerClose.init();
         Sailing.register(Constants.MOD_ID, Constants.MOD_NAME, Constants.MOD_VERSION, Constants.MOD_PUBLISHER, Constants.MOD_URL);
         DangerCloseForge.EVENT_BUS = context.getModEventBus();
+
+        ForgeNetwork.register();
+
         ForgeCommonConfigHandler.onLoad();
         // MinecraftForge.EVENT_BUS.addListener((Consumer<TickEvent.ServerTickEvent>)event -> onServerTick(event));
         MinecraftForge.EVENT_BUS.addListener((Consumer<LivingEvent.LivingTickEvent>) event -> onLivingTick(event));
