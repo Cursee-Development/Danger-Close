@@ -32,7 +32,8 @@ public class DangerCloseForge {
         ForgeCommonConfigHandler.onLoad();
         DangerCloseForge.EVENT_BUS = context.getModEventBus();
 
-        MinecraftForge.EVENT_BUS.addListener((Consumer<FMLCommonSetupEvent>) event -> event.enqueueWork(ForgeNetwork::registerS2CPackets));
+        // MinecraftForge.EVENT_BUS.addListener((Consumer<FMLCommonSetupEvent>) event -> event.enqueueWork(ForgeNetwork::registerS2CPackets));
+        ForgeNetwork.registerS2CPackets();
 
         // MinecraftForge.EVENT_BUS.addListener((Consumer<TickEvent.ServerTickEvent>)event -> onServerTick(event));
         MinecraftForge.EVENT_BUS.addListener((Consumer<LivingEvent.LivingTickEvent>) event -> onLivingTick(event));

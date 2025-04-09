@@ -7,6 +7,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.Blaze;
@@ -124,6 +125,6 @@ public class DangerClose {
         }
 
         if (CommonConfigValues.shouldBlazeImmolate && entityB instanceof Blaze) immolate(entityA);
-        if (CommonConfigValues.shouldMagmaCubeImmolate && entityB instanceof MagmaCube) immolate(entityA);
+        if (CommonConfigValues.shouldMagmaCubeImmolate && (entityB instanceof MagmaCube || entityB.getType() == EntityType.MAGMA_CUBE)) immolate(entityA);
     }
 }
