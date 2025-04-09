@@ -28,12 +28,12 @@ public class DangerCloseForge {
         Sailing.register(Constants.MOD_ID, Constants.MOD_NAME, Constants.MOD_VERSION, Constants.MOD_PUBLISHER, Constants.MOD_URL);
         DangerCloseForge.EVENT_BUS = context.getModEventBus();
 
+        // DangerCloseForge.EVENT_BUS.addListener((Consumer<FMLCommonSetupEvent>) event -> event.enqueueWork(ForgeNetwork::register));
         ForgeNetwork.register();
 
         ForgeCommonConfigHandler.onLoad();
         // MinecraftForge.EVENT_BUS.addListener((Consumer<TickEvent.ServerTickEvent>)event -> onServerTick(event));
         MinecraftForge.EVENT_BUS.addListener((Consumer<LivingEvent.LivingTickEvent>) event -> onLivingTick(event));
-        DangerCloseForge.EVENT_BUS.addListener((Consumer<FMLCommonSetupEvent>) event -> event.enqueueWork(ForgeNetwork::register));
 
         MinecraftForge.EVENT_BUS.addListener((Consumer<EntityJoinLevelEvent>) event -> {
             if (!(event.getEntity() instanceof ServerPlayer player)) return;
