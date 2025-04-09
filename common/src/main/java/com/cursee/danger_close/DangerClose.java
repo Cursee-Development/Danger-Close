@@ -125,6 +125,6 @@ public class DangerClose {
         }
 
         if (CommonConfigValues.shouldBlazeImmolate && entityB instanceof Blaze) immolate(entityA);
-        if (CommonConfigValues.shouldMagmaCubeImmolate && (entityB instanceof MagmaCube || entityB.getType() == EntityType.MAGMA_CUBE)) immolate(entityA);
+        if (CommonConfigValues.shouldMagmaCubeImmolate && !entityA.isOnFire() && (entityB instanceof MagmaCube || entityB.getType() == EntityType.MAGMA_CUBE)) immolate(entityA);
     }
 }
