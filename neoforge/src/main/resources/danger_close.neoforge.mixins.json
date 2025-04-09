@@ -3,10 +3,10 @@
   "minVersion": "0.8",
   "package": "com.cursee.danger_close.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [],
-  "client": [
-    "NeoForgeTitleScreenMixin"
+  "mixins": [
+    "NeoForgeSlimeMixin"
   ],
+  "client": [],
   "server": [],
   "injectors": {
     "defaultRequire": 1
