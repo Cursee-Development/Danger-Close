@@ -88,8 +88,8 @@ public class DangerClose {
             }
 
             if (CommonConfigValues.shouldMagmaBlockImmolate && !hasFrostWalker && !entity.isShiftKeyDown()) {
-                if (stateInside.getTags().anyMatch(MAGMA_MATCH)) immolateSoul(entity);
-                else if (stateBelow.getTags().anyMatch(MAGMA_MATCH)) immolateSoul(entity);
+                if (stateInside.getTags().anyMatch(MAGMA_MATCH)) immolate(entity);
+                else if (stateBelow.getTags().anyMatch(MAGMA_MATCH)) immolate(entity);
             }
 
             if (CommonConfigValues.shouldStonecutterCut && !entity.isShiftKeyDown()) {
